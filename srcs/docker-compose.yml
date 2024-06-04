@@ -1,0 +1,71 @@
+name: inception
+#NEEEDS VERSION!
+
+networks:
+  lkavalia_inception:
+    name: lkavalia_inception
+
+services:
+  #WEBSERVER SERVICE
+  nginx:
+    hostname:  nginx_service
+    depends_on:
+      - wordpress
+    build:
+      context: ./requirements/nginx
+    ports:
+      - 443:443
+    networks:
+      - lkavalia_inception
+    restart: unless-stopped #Behaves the same as !always!. The difference When a container is stopped and the server is rebooted or the Docker service is restarted, the container will not be restarted.
+    env_file:
+      - .env    
+    volumes:
+     - wordpress:/var/www/inception_wordpress
+  #DATABASE SERVICE
+  mariadb:
+    hostname: mariadb_service
+    build:
+      context: ./requirements/mariadb
+    networks:
+      - lkavalia_inception
+    restart: unless-stopped
+    env_file:
+      - .env
+    volumes:
+      - mariadb:/var/lib/mysql
+  #WORDPRESS SERVICE
+  wordpress:
+    hostname: wordpress_service #This is set for compatibility and clarity
+    depends_on:
+      - mariadb
+    ports:
+      - 9000:9000
+    build:
+      context: ./requirements/wordpress
+    networks:
+      - lkavalia_inception
+    restart: unless-stopped
+    env_file:
+      - .env
+    volumes:
+      - wordpress:/var/www/inception_wordpress
+
+
+#Volumes are like storage directory just that the data stays after container is shut down.
+#It creates a storage in host side and then maps it to the container side.
+volumes:
+  mariadb:
+    name: mariadb_volume
+    driver: local #Even though its the default behaviour of the docker volumes specify it for clearity
+    driver_opts:
+      type: none
+      o: bind
+      device: /home/lkavalia/data/mariadb
+  wordpress:
+    driver: local #Even though its the default behaviour of the docker volumes specify it for clearity
+    driver_opts:
+      type: none
+      o: bind
+      device: /home/lkavalia/data/wordpress
+
