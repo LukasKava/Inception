@@ -45,3 +45,10 @@ Then ctrl x; ctrl y; enter to save it.
 ----- And you just succesfully accessed the vm through wsl2 ssh (P.S just make sure you have openssh installed from step 1) ------
 
 
+2STEP: download and install git ===>
+  1.  sudo apt install git to install git
+  2.  Generate SSH key.
+     -- ssh-keygen -t rsa
+  3. cat /home/klukas("your username")/.ssh/id_rsa.pub and copy your public key to github >> Settings >> SSH and GPG keys
+     
+----- And now voila you connected your github with your vm and the same has to be done for school git -----------------------------
