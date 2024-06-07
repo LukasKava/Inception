@@ -1,3 +1,7 @@
+1STEP: establish ssh connection.
+
+===== ?Reason for ssh connection is to be able to copy paste information from host to the virtual machine easily ==== 
+
 1. Establish ssh connection from VM to WSL 2 environment and puTTY.
   - sudo apt install openssh-server
 2. Check if its running
