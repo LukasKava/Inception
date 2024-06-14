@@ -1,3 +1,15 @@
+WHAT IS DOCKER?
+
+  Docker 
+
+WHAT IS DOCKER COMPOSE?
+
+  It is a tool that helps you to run and manage multiple container applications.
+
+HOW DO DOCKER AND DOCKER COMPOSE WORK?
+  
+
+
 1STEP: Establish SSH connection.
 
 ===== ?The reason for ssh connection is to be able to copy and paste information from the host to the virtual machine easily ==== 
