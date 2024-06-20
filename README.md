@@ -7,8 +7,6 @@ WHAT IS DOCKER COMPOSE?
   It is a tool that helps you to run and manage multiple container applications.
 
 HOW DO DOCKER AND DOCKER COMPOSE WORK?
-  
-
 
 1STEP: Establish SSH connection.
 
@@ -71,3 +69,26 @@ Then ctrl x; ctrl y; enter to save it.
   https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository
 
 4STEP: clone your Inception git repository.
+
+5STEP: Do not forget to have make installed:
+  sudo apt install make
+
+6STEP: Check if docker-compose is installed by:
+  docker-compose --version
+
+6.5: If docker-compose is not there instal it  by :
+  $ sudo apt-get update  
+  $ sudo apt-get install docker-compose-plugin
+  $ docker compose version
+  - Then add your user to docker group by:
+    $ sudo usermod -aG docker $USER
+    $ newgrp docker
+  - Check that you are in docker group by running groups you should see docker group:
+    $groups 
+6STEP: You want to allow 443 port for https in ufw firewall.
+  sudo ufw allow 443
+  
+7STEP: Repeat the step where you allowed port 22 in Virtual machine settings and set Host port 443 to communicate with VM port 443
+  ![image](https://github.com/LukasKava/Inception/assets/111790658/09c16322-6cbe-40a7-9cf1-9a3bdec9870d)
+
+
