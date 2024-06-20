@@ -8,8 +8,6 @@ WHAT IS DOCKER COMPOSE?
 
 HOW DO DOCKER AND DOCKER COMPOSE WORK?
 
-
-
 1STEP: Establish SSH connection.
 
 ===== ?The reason for ssh connection is to be able to copy and paste information from the host to the virtual machine easily ==== 
