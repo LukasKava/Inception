@@ -7,10 +7,10 @@ services:
   #WEBSERVER SERVICE
   nginx:
     hostname:  nginx_service
+    container_name: nginx_service
     depends_on:
       - wordpress
-    build:
-      context: ./requirements/nginx
+    build: ./requirements/nginx
     ports:
       - 443:443
     networks:
@@ -23,8 +23,8 @@ services:
   #DATABASE SERVICE
   mariadb:
     hostname: mariadb_service
-    build:
-      context: ./requirements/mariadb
+    container_name: mariadb_service
+    build: ./requirements/mariadb
     networks:
       - lkavalia_inception
     restart: unless-stopped
@@ -35,12 +35,12 @@ services:
   #WORDPRESS SERVICE
   wordpress:
     hostname: wordpress_service #This is set for compatibility and clarity
+    container_name: wordpress_service #This is okay for one container but for multiple dont use it as container names have to be unique
     depends_on:
       - mariadb
     ports:
       - 9000:9000
-    build:
-      context: ./requirements/wordpress
+    build: ./requirements/wordpress
     networks:
       - lkavalia_inception
     restart: unless-stopped
@@ -61,6 +61,7 @@ volumes:
       o: bind
       device: /home/lkavalia/data/mariadb
   wordpress:
+    name: wordpress_volume
     driver: local #Even though its the default behaviour of the docker volumes specify it for clearity
     driver_opts:
       type: none
