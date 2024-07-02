@@ -1,16 +1,17 @@
 WHAT IS DOCKER?
 
-  Docker 
+  Docker is a platform that allows building, deploying, and running containerized applications. It enables you to deploy       your software easier no matter the machine as everything that software needs is in the docker container.
 
 WHAT IS DOCKER COMPOSE?
 
   It is a tool that helps you to run and manage multiple container applications.
 
-HOW DO DOCKER AND DOCKER COMPOSE WORK?
+DIFFERENCES BETWEEN VM AND DOCKER CONTAINER:
+  https://www.freecodecamp.org/news/docker-vs-vm-key-differences-you-should-know/
 
 1STEP: Establish SSH connection.
 
-===== ?The reason for ssh connection is to be able to copy and paste information from the host to the virtual machine easily ==== 
+===== ?The reason for SSH connection is to be able to copy and paste information from the host to the virtual machine easily ==== 
 
 1. Establish ssh connection from VM to WSL 2 environment and puTTY.
   - sudo apt install OpenSSH-server
