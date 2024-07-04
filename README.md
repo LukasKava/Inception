@@ -46,7 +46,7 @@ Then ctrl x; ctrl y; enter to save it.
 ----- And you just successfully accessed the VM through SSH ------
 
 
-====== Connecting to the VM through SSH  (WSL2) ===================
+====== Connecting to the VM through SSH  (WSL2) or 42Wolfsburg machines ===================
 1. You want to check the file where you will see a nameserver of your wsl2 you have to use it instead of localhost.
      ![image](https://github.com/LukasKava/Inception/assets/111790658/7ac73aa4-a8a7-4121-a702-92ef55d7ebae)
 2. To ssh connect to your virtual machine just type:
